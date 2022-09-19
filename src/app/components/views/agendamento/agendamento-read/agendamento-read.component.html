@@ -1,0 +1,81 @@
+<div class="content">
+  <div *ngIf="agendamentos.length >0; else loading">
+    <div class="title">
+        <h1>Agendamentos</h1>
+    </div>
+    <button class="mat-elevation-z8" (click)="navegarParaAgendamentoCreate()"  routerLinkActive="router-link-active"  mat-flat-button color="primary">NOVO AGENDAMENTO</button>
+
+    <div class="mat-elevation-z8 content-table">
+        <table class="table" mat-table [dataSource]="agendamentos">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Id Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            </ng-container>
+          
+            <!-- Logradouro Column -->
+            <ng-container matColumnDef="data_agendamento">
+              <th mat-header-cell *matHeaderCellDef> Data Agendamento </th>
+              <td mat-cell *matCellDef="let row"> 
+                <mat-form-field appearance="fill">
+                  <input matInput type="date" min="1" value="{{row.data_agendamento}}" disabled>
+                </mat-form-field>
+               </td>
+            </ng-container>
+          
+            <!-- Bairro Column -->
+            <ng-container matColumnDef="funcionario">
+              <th mat-header-cell *matHeaderCellDef> Funcionario </th>
+              <td mat-cell *matCellDef="let row"> {{row.funcionario}} </td>
+            </ng-container>
+          
+            <!-- Número Column -->
+            <ng-container matColumnDef="horario">
+              <th mat-header-cell *matHeaderCellDef> Horário </th>
+              <td mat-cell *matCellDef="let row"> {{row.horario}} </td>
+            </ng-container>
+
+              <!-- usuarios Column -->
+              <ng-container matColumnDef="cliente">
+                <th mat-header-cell *matHeaderCellDef> Cliente </th>
+                <td mat-cell *matCellDef="let row"> {{row.cliente}}
+                  <a class="usuarios" routerLink="clientes/{{row.id_cliente}}/view">
+                    <i class="material-icons">people</i>   
+                  </a>
+                </td>
+              </ng-container>
+    
+              <!-- usuarios Column -->
+            <ng-container matColumnDef="servico">
+              <th mat-header-cell *matHeaderCellDef> Servico </th>
+              <td mat-cell *matCellDef="let row"> {{row.servico}}
+                <a class="usuarios" routerLink="servicos/{{row.id_servico}}/view">
+                  <i class="material-icons">card_travel</i>   
+                </a>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="acoes">
+              <th class="math-reader" mat-header-cell *matHeaderCellDef>Ações</th>
+              <td mat-cell *matCellDef="let row">
+                <a class="edit" routerLink="update/id/{{ row.id }}">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a class="delete" routerLink="delete/id/{{ row.id }}">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </div>
+    </div>
+</div>
+<ng-template #loading>
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" >Carregando...</p></ngx-spinner>
+</ng-template>

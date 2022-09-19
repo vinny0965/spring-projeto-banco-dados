@@ -1,0 +1,13 @@
+.example-card {
+    width: 35%;
+    margin: 1rem auto;
+  }
+  
+  .example-header-image {
+    background-image: url('https://www.petz.com.br/blog/wp-content/uploads/2020/01/como-criar-furao-1280x720.jpg');
+    background-size: cover;
+  }
+
+  mat-form-field{
+    margin: .3rem;
+}

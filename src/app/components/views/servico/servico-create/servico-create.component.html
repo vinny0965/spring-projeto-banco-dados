@@ -1,0 +1,33 @@
+<mat-card class="example-card mat-elevation-z4">
+    <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+        <mat-step >
+          <form>
+            <ng-template matStepLabel>Informações do Serviço</ng-template>
+            <mat-form-field appearance="fill">
+              <mat-label>Tipo</mat-label>
+              <input
+                matInput
+                [(ngModel)]="servico.tipo_servico"
+                name="tipo_servico"
+                placeholder="Tipo do Serviço"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Valor</mat-label>
+              <input
+                matInput
+                [(ngModel)]="servico.valor"
+                name="valor"
+                placeholder="Valor R$"
+                required
+              />
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious mat-flat-button color="" (click)="cancel()">Cancelar</button>
+              <button mat-button mat-flat-button color="primary" (click)="create()">Cadastrar</button>
+          </div>
+          </form>
+        </mat-step>
+      </mat-stepper>
+    </mat-card>

@@ -1,0 +1,23 @@
+<form>
+    <h1>ATUALIZAR ENDEREÇO </h1>
+    <mat-form-field class="form">
+        <mat-label>Logradouro</mat-label>
+        <input matInput  [(ngModel)]="endereco.rua" type="text" name="rua">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Bairro</mat-label>
+        <input matInput [(ngModel)]="endereco.bairro" type="text" name="bairro">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Número</mat-label>
+        <input matInput [(ngModel)]="endereco.numero" type="number" name="numero">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Cep</mat-label>
+        <input matInput [(ngModel)]="endereco.cep" type="text" name="cep">
+    </mat-form-field>
+    <div class="button">
+        <button  (click)="update()"class="mat-elevation-z8" mat-stroked-button color="primary">Atualizar</button>
+        <button (click)="cancel()"class="mat-elevation-z8" mat-stroked-button color="warn">Cancelar</button>
+    </div>
+</form>

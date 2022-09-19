@@ -1,0 +1,124 @@
+<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+  <mat-step >
+    <form>
+      <ng-template matStepLabel>Identificação</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input
+          matInput
+          [(ngModel)]="cliente.nome"
+          name="nome"
+          placeholder="Nome Completo"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Cpf/CNPJ</mat-label>
+        <input
+          matInput
+          [(ngModel)]="cliente.cnpjCpf"
+          name="cpf"
+          placeholder="CPF: 111.111.111-11"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Rg</mat-label>
+        <input
+          matInput
+          [(ngModel)]="cliente.rg"
+          name="cpf"
+          placeholder="RG: M-XXXXX-XX"
+          required
+        />
+      </mat-form-field>
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Data de Nascimento</mat-label>
+        <input matInput
+        [(ngModel)]="cliente.dataNascimento"
+        name="dataNascimento"
+      >
+      </mat-form-field> -->
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Data de Nascimento</mat-label>
+        <input matInput [matDatepicker]="picker"
+        [(ngModel)]="cliente.dataNascimento"
+        name="dataNascimento">
+        <mat-hint>YYYY-MM-DD</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Sexo</mat-label>
+        <input
+          matInput
+          [(ngModel)]="cliente.sexo"
+          name="sexo"
+          placeholder="Nome Completo"
+          required
+        />
+      </mat-form-field> -->
+      <div>
+        <button mat-button matStepperNext mat-flat-button color="primary">Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form>
+      <ng-template matStepLabel>Informações de Contato</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Telefone</mat-label>
+        <input
+          matInput
+          [(ngModel)]="cliente.telefone"
+          name="telefone"
+          placeholder="Nome Completo"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Celular</mat-label>
+        <input
+          matInput
+          [(ngModel)]="cliente.celular"
+          name="celular"
+          placeholder="Nome Completo"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Data de Entrada</mat-label>
+        <input matInput [matDatepicker]="picker"
+        [(ngModel)]="cliente.dataEntrada"
+        name="dataEntrada">
+        <mat-hint>YYYY-MM-DD</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Data de Saida</mat-label>
+        <input matInput [matDatepicker]="picker2"
+        [(ngModel)]="cliente.dataSaida"
+        name="dataSaida">
+        <mat-hint>YYYY-MM-DD</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo Cliente</mat-label>
+        <input
+          matInput
+          [(ngModel)]="cliente.tipoCliente"
+          name="tipoCliente"
+          placeholder="Tipo Cliente"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious mat-flat-button color="">Anterior</button>
+        <button mat-button mat-flat-button color="primary" (click)="create()">Enviar</button>
+    </div>
+    </form>
+  </mat-step>
+</mat-stepper>

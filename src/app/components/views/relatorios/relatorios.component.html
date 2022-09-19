@@ -1,0 +1,98 @@
+<div class="content">
+    <div id="content" #content>
+        <mat-card>
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Relatório de Pagamentos</mat-card-title>
+                <mat-card-subtitle>Relatório diário</mat-card-subtitle>
+              </mat-card-header>
+              <div class="content-table">
+                  
+                <table class="table" mat-table [dataSource]="fluxoscaixa">
+                  <!--- Note that these columns can be defined in any order.
+                              The actual rendered columns are set as a property on the row definition" -->
+            
+                  <!-- Id Column -->
+                  <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>ID</th>
+                    <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+                  </ng-container>
+            
+                  <!-- Logradouro Column -->
+                  <ng-container matColumnDef="forma_pagamento">
+                    <th mat-header-cell *matHeaderCellDef>Forma Pagamento</th>
+                    <td mat-cell *matCellDef="let row">{{ row.forma_pagamento }}</td>
+                  </ng-container>
+            
+                  <!-- Bairro Column -->
+                  <ng-container matColumnDef="total_pagamento">
+                    <th mat-header-cell *matHeaderCellDef>Total Pagamento</th>
+                    <td mat-cell *matCellDef="let row">R$ {{ row.total_pagamento }}</td>
+                  </ng-container>
+                  <!-- Bairro Column -->
+                  <ng-container matColumnDef="id_agendamento">
+                      <th mat-header-cell *matHeaderCellDef>Id Agendamento</th>
+                      <td mat-cell *matCellDef="let row">{{ row.id_agendamento }}</td>
+                    </ng-container>
+                    <!-- Bairro Column -->
+                  <ng-container matColumnDef="id_cupom">
+                      <th mat-header-cell *matHeaderCellDef>Id Cupom</th>
+                      <td mat-cell *matCellDef="let row">{{ row.id_cupom }}</td>
+                    </ng-container>
+            
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                </table>
+                </div>
+          </mat-card>
+          <br>
+          <mat-card>
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Relatório de Agendametos</mat-card-title>
+                <mat-card-subtitle>Relatório diário de hoje: {{dataAgendamento}}</mat-card-subtitle>
+              </mat-card-header>
+               <div class="content-table">
+            <table class="table" mat-table [dataSource]="agendamentos">
+    
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                <!-- Id Column -->
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef> ID </th>
+                  <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                </ng-container>
+              
+                <!-- Logradouro Column -->
+                <ng-container matColumnDef="data_agendamento">
+                  <th mat-header-cell *matHeaderCellDef> Data Agendamento </th>
+                  <td mat-cell *matCellDef="let row"> 
+                    <mat-form-field>
+                      <input matInput type="date" min="1" value="{{row.data_agendamento}}" disabled>
+                    </mat-form-field>
+                   </td>
+                </ng-container>
+              
+                <!-- Bairro Column -->
+                <ng-container matColumnDef="funcionario">
+                  <th mat-header-cell *matHeaderCellDef> Funcionario </th>
+                  <td mat-cell *matCellDef="let row"> {{row.funcionario}} </td>
+                </ng-container>
+              
+                <!-- Número Column -->
+                <ng-container matColumnDef="horario">
+                  <th mat-header-cell *matHeaderCellDef> Horário </th>
+                  <td mat-cell *matCellDef="let row"> {{row.horario}} </td>
+                </ng-container>
+    
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsa"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsa;"></tr>
+              </table>
+        </div>
+          </mat-card>
+          <br>
+    </div>
+</div>
+
+<button  mat-button mat-flat-button color="primary" (click)="printPDF()">Gerar Relatório</button>   

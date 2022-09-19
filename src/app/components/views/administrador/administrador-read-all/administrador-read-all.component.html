@@ -1,0 +1,87 @@
+<div class="content">
+    <div class="title">
+    </div>
+    <!-- <div *ngIf="administradores.length >0; else loading"> -->
+    <button
+      class="mat-elevation-z8"
+      
+      mat-stroked-button
+      color="primary"
+      (click)=" navegarParaAdministradorCreate()"
+    >
+      NOVO ADMINISTRADOR
+    </button>
+  
+    <div class="mat-elevation-z8 content-table">
+      <mat-toolbar color="primary" class="color-tabela">Administradores
+        
+      </mat-toolbar>
+      <table class="table" mat-table [dataSource]="administradores">
+        <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+  
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+        </ng-container>
+  
+        <!-- Logradouro Column -->
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef>NOME</th>
+          <td mat-cell *matCellDef="let row">{{ row.nome }}</td>
+        </ng-container>
+  
+        <!-- Bairro Column -->
+        <ng-container matColumnDef="cpf">
+          <th mat-header-cell *matHeaderCellDef>CPF</th>
+          <td mat-cell *matCellDef="let row">{{ row.cpf }}</td>
+        </ng-container>
+  
+        <!-- usuarios Column -->
+        <ng-container matColumnDef="servicos">
+          <th mat-header-cell *matHeaderCellDef>SERVICOS</th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.usuarios }}
+            <a class="usuarios" routerLink="id/{{ row.id }}/servicos">
+              <i class="material-icons">design_services</i>
+            </a>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cupons">
+            <th mat-header-cell *matHeaderCellDef>CUPONS</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.usuarios }}
+              <a class="usuarios" routerLink="id/{{ row.id }}/cupons">
+                <i class="material-icons">confirmation_number</i>
+              </a>
+            </td>
+          </ng-container>
+  
+        <!-- Ação Column -->
+        <ng-container matColumnDef="acoes">
+          <th class="math-reader" mat-header-cell *matHeaderCellDef>AÇÕES</th>
+          <td mat-cell *matCellDef="let row">
+            <a class="edit" routerLink="update/id/{{ row.id }}">
+              <i class="material-icons">edit</i>
+            </a>
+            <a class="delete" routerLink="delete/id/{{ row.id }}">
+              <i class="material-icons">delete</i>
+            </a>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>  
+    </div>
+    <!-- </div> -->
+    <ng-template #loading>
+      <ngx-spinner class="spinner" bdColor = "rgba(0, 0, 0, 0.8)" 
+      size = "medium" color = "#fff" 
+      type = "square-jelly-box" [fullScreen] = "true">
+      <p  style="color: white" > Carregando... </p></ngx-spinner>
+    </ng-template>  
+  </div>
+  

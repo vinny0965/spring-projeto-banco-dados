@@ -1,0 +1,42 @@
+<form>
+    <h1>Dados do Funcionário</h1>
+    <mat-form-field class="form">
+        <mat-label>Nome</mat-label>
+        <input disabled [(ngModel)]="funcionario.nome" matInput  type="text" name="nome">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Cpf/CNPJ</mat-label>
+        <input disabled [(ngModel)]="funcionario.cpf_cnpj" matInput  type="text" name="cpf_cnpj">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Rg</mat-label>
+        <input disabled [(ngModel)]="funcionario.rg" matInput  type="text" name="rg">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Especialiade</mat-label>
+        <input disabled [(ngModel)]="funcionario.especialidade" matInput  type="text" name="especialidade">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Salário</mat-label>
+        <input disabled [(ngModel)]="funcionario.salario" matInput  type="text" name="salario">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Data Admimissão</mat-label>
+        <input disabled [(ngModel)]="funcionario.dataAdmissao" matInput  type="date" name="dataAdmissao">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Horário Agendamento</mat-label>
+        <input disabled [(ngModel)]="funcionario.horarioAgendamento" matInput  type="datetime" name="horarioAgendamento">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Telefone</mat-label>
+        <input disabled [(ngModel)]="funcionario.telefone" matInput  type="text" name="telefone">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Tipo Funcionario</mat-label>
+        <input disabled [(ngModel)]="funcionario.funcionarioTipo" matInput  type="number" name="funcionarioTipo">
+    </mat-form-field>
+    <div class="button">
+        <button (click)="cancel()" class="mat-elevation-z8" mat-flat-button color="primary">CANCELAR</button>
+    </div>
+</form>

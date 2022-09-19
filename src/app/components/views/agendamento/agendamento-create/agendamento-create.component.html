@@ -1,0 +1,166 @@
+<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+  <mat-step>
+    <form>
+      <ng-template matStepLabel>Agendamento</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Data Agendamento</mat-label>
+        <input
+          matInput
+          [(ngModel)]="agendamento.data_agendamento"
+          name="data_agendamento"
+          placeholder="Data Agendamento"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Horário</mat-label>
+        <input
+          matInput
+          [(ngModel)]="agendamento.horario"
+          name="horario"
+          placeholder="horario"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>funcionario</mat-label>
+        <input
+          matInput
+          [(ngModel)]="agendamento.funcionario"
+          name="funcionario"
+        />
+      </mat-form-field>
+      <!-- <mat-form-field appearance="fill">
+          <mat-label>Data de Nascimento</mat-label>
+          <input matInput [matDatepicker]="picker"
+          [(ngModel)]="cliente.dataNascimento"
+          name="dataNascimento">
+          <mat-hint>YYYY-MM-DD</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> -->
+      <div>
+        <button mat-button matStepperNext mat-flat-button color="primary">
+          Próximo
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form>
+      <ng-template matStepLabel>Informações de Cliente</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Cliente</mat-label>
+        <input
+          matInput
+          [(ngModel)]="cliente.cnpjCpf"
+          name="cpf"
+          placeholder="CPF:"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious mat-flat-button color="">
+          Anterior
+        </button>
+        <button mat-button matStepperNext mat-flat-button color="primary" (click)="findCliente()">
+          Verificar dados
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form >
+      <ng-template matStepLabel>Resumo do Cliente</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Nome do Cliente</mat-label>
+        <input
+          matInput
+          name="nome"
+          placeholder="nome:"
+          disabled
+          value="{{cliente.nome}}"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Telefone do Cliente</mat-label>
+        <input
+          matInput
+          name="telefone"
+          placeholder="telefone:"
+          disabled
+          value="{{cliente.telefone}}"
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious mat-flat-button color="">
+          Anterior
+        </button>
+        <button mat-button matStepperNext mat-flat-button color="primary" (click)="findCliente()">
+          Próximo
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form>
+      <ng-template matStepLabel>Informações de Serviço</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Nome Servico</mat-label>
+        <input
+          matInput
+          [(ngModel)]="servico.tipo_servico"
+          name="tipo_servico"
+          placeholder="Tipo do Serviço:"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button  mat-button matStepperPrevious mat-flat-button color="">
+          Anterior
+        </button>
+        <button (click)=" findServico()" mat-button matStepperNext mat-flat-button color="primary" (click)="findCliente()">
+          Verificar dados
+        </button>
+      </div>
+      </form>
+      </mat-step>
+      <mat-step>
+        <form>
+          <ng-template matStepLabel>Resumo do Serviço</ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>Nome Servico</mat-label>
+            <input
+              matInput
+              name="tipo_servico"
+              placeholder="Tipo do Serviço:"
+              value="{{servico.tipo_servico}}"
+              disabled
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Valor</mat-label>
+            <input
+              matInput
+              name="valor"
+              placeholder="Valor:"
+              value="{{servico.valor}}"
+              disabled
+            />
+          </mat-form-field>
+        <div>
+        <button mat-button matStepperPrevious mat-flat-button color="">
+        Anterior
+        </button>
+        <button
+          mat-button
+          mat-flat-button
+          color="primary"
+          (click)="createAgendamento()"
+        >
+          Cadastrar Agendamento
+        </button>
+      </div>
+    </form>
+  </mat-step>
+</mat-stepper>

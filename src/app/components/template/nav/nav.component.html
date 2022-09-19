@@ -1,0 +1,37 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('opened')"
+        (closed)="events.push('close!')">
+        <mat-nav-list>
+            <a routerLink="" mat-list-item>
+                <i class="material-icons">home</i>
+                Home     
+            </a>
+            <a routerLink="/enderecos" mat-list-item>
+                <i class="material-icons">business</i>
+                Endereço     
+            </a>
+            <a routerLink="/clientes" mat-list-item>
+                <i class="material-icons">groups_3</i>
+                Clientes     
+            </a>
+            
+            <a routerLink="/funcionarios" mat-list-item>
+                <i class="material-icons">local_activity</i>
+                Funcionarios     
+            </a>
+            <a routerLink="/ordens-servicos" mat-list-item>
+                <i class="material-icons">edit_square</i>
+                Ordens Servicos     
+            </a>
+           
+           
+            <!-- <button mat-button (click)="sidenav.toggle()">
+                <i class="material-icons">calendar_today</i>
+            </button> -->
+            
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

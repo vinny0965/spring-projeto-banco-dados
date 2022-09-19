@@ -1,0 +1,155 @@
+<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+    <mat-step>
+      <form>
+        <ng-template matStepLabel>Agendamento</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Id Agendamento</mat-label>
+          <input
+            matInput
+            [(ngModel)]="idAgendamento"
+            name="id"
+            placeholder="ID Agendamento"
+            required
+          />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext mat-flat-button color="primary"
+          (click)="findAgendamento()">
+            Próximo
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <form>
+        <ng-template matStepLabel>Informações do Agendamento</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Data do Agendamento</mat-label>
+          <input
+            matInput
+            type="date"
+            name="data_agendamento"
+            placeholder="Data agendamento:"
+            disabled
+            value="{{agendamento.data_agendamento}}"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Horário do Agendamento</mat-label>
+            <input
+              matInput
+              type="time"
+              name="horario"
+              placeholder="Horario:"
+              disabled
+              value="{{agendamento.horario}}"
+            />
+          </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious mat-flat-button color="">
+            Anterior
+          </button>
+          <button mat-button matStepperNext mat-flat-button color="primary">
+            Próximo
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <form >
+        <ng-template matStepLabel>Cupom</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Código do Cupom</mat-label>
+          <input
+            matInput
+            [(ngModel)]="cupom.codigo"
+            name="codigo"
+            placeholder="codigo:"
+            required
+          />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious mat-flat-button color="">
+            Anterior
+          </button>
+          <button mat-button matStepperNext mat-flat-button color="primary" (click)="findCupom()">
+            Próximo
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <form>
+        <ng-template matStepLabel>Informações do Cupom</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Código do Cupom</mat-label>
+          <input
+            matInput
+            name="codigo"
+            placeholder="codigo do cupom:"
+            disabled
+            value="{{cupom.codigo}}"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Valor do Cupom</mat-label>
+            <input
+              matInput
+              name="valor"
+              placeholder="valor do cupom:"
+              disabled
+              value="{{cupom.valor}}"
+            />
+          </mat-form-field>
+        <div>
+          <button  mat-button matStepperPrevious mat-flat-button color="">
+            Anterior
+          </button>
+          <button mat-button matStepperNext mat-flat-button color="primary">
+            Próximo
+          </button>
+        </div>
+        </form>
+        </mat-step>
+        <mat-step>
+          <form>
+            <ng-template matStepLabel>Dados de Pagamento</ng-template>
+            <mat-form-field appearance="fill">
+              <mat-label>Forma Pagamento</mat-label>
+              <input
+                matInput
+                [(ngModel)]="fluxocaixa.forma_pagamento"
+                name="forma_pagamento"
+                placeholder="Forma de pagamento:"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Total Pagamento</mat-label>
+              <input
+                matInput
+                [(ngModel)]="fluxocaixa.total_pagamento"
+                name="total_pagamento"
+                placeholder="Total pagamentos:"
+                required
+              />
+            </mat-form-field>
+          <div>
+          <button mat-button matStepperPrevious mat-flat-button color="">
+          Anterior
+          </button>
+          <button
+            mat-button
+            mat-flat-button
+            color="primary"
+            (click)="createFluxoCaixa()"
+           
+          >
+            Cadastrar Cupom
+        
+          </button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-stepper>
+  

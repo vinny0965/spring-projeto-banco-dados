@@ -1,0 +1,24 @@
+mat-card{
+    width: 40%;
+    
+}
+
+.example-header-image {
+    background-image: url('https://www.petz.com.br/blog/wp-content/uploads/2020/01/como-criar-furao-1280x720.jpg');
+    background-size: cover;
+  }
+  .table{
+    width: 100%;
+}
+
+button{
+    margin-left: 40%;
+}
+
+
+
+.content{
+    width: 100%;
+    margin-top: 2rem;
+    margin-left: 25%;
+}

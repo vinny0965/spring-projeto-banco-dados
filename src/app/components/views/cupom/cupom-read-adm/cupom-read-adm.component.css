@@ -1,0 +1,53 @@
+.content{
+    width: 90%;
+    margin: 1.4rem auto auto auto;
+
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.title h1{
+    font-size: 1.5rem;
+    font-weight: 500;
+    
+}
+
+button{
+    margin-bottom: .8rem;
+    
+}
+
+.usuarios{
+    color:rgb(8, 112, 204);
+    margin-left: .6rem;
+}
+
+.table{
+    width: 100%;
+}
+
+.delete{
+    color:rgb(194, 32, 32);
+    cursor: pointer;
+    
+}
+
+.math-reader{
+    width: 5rem;
+}
+
+.edit{
+    color:rgb(208, 151, 6)
+}
+
+.loading-spinner{
+    padding: 25px;
+    background: rgba(188, 183, 183, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

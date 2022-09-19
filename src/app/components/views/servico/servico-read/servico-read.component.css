@@ -1,0 +1,9 @@
+.example-card {
+    width: 90%;
+    margin: 1.4rem auto auto auto;
+  }
+  
+  .example-header-image {
+    background-image: url('https://t2.ea.ltmcdn.com/pt/posts/4/6/5/o_furao_como_animal_de_estimacao_20564_600.jpg');
+    background-size: cover;
+  }

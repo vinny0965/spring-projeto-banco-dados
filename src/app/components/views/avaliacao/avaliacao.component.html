@@ -1,0 +1,34 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Avalie o Atendimento da Barbearia</mat-card-title>
+      <mat-card-subtitle>O Furão Agradece</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://www.petz.com.br/blog/wp-content/uploads/2020/01/como-criar-furao-1280x720.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        Gostariamos de saber se você gostou do atendimento oferecido pela nossa barbearia, caso esteja satisfeito
+        responda a este card inserindo uma mensagem/comentário, buscaremos sempre melhor lhe atender.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Mensagem</mat-label>
+          <input matInput #message maxlength="256" placeholder="Escreva aqui uma mensagem..."
+          name="messages" ngModel required #messages="ngModel">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input matInput #message maxlength="256" placeholder="Nome Completo"
+          name="name" ngModel required #name="ngModel">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput  placeholder="Ex. exemplo@example.com"
+          name="email" ngModel required #email="ngModel">
+        </mat-form-field>
+        <button mat-button type="send">Enviar</button>
+    </form>
+    </mat-card-actions>
+  </mat-card>

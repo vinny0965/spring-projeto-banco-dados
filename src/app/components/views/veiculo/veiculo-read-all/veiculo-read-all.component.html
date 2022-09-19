@@ -1,0 +1,47 @@
+<div class="content">
+    <div *ngIf="veiculos.length >0; else loading">
+      <div class="title">
+          <h1>Veiculos do Cliente</h1>
+      </div>
+      <button class="mat-elevation-z8"  routerLinkActive="router-link-active"  mat-flat-button color="primary">NOVO VEICULO</button>
+  
+      <div class="mat-elevation-z8 content-table">
+          <table class="table" mat-table [dataSource]="veiculos">
+  
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            
+              <!-- Id Column -->
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+              </ng-container>
+            
+              <!-- modelo Column -->
+              <!-- marca Column -->
+              <ng-container matColumnDef="modelo">
+                <th mat-header-cell *matHeaderCellDef> Modelo </th>
+                <td mat-cell *matCellDef="let row"> {{row.modelo}} </td>
+              </ng-container>
+            
+              <!-- marca Column -->
+              <ng-container matColumnDef="marca">
+                <th mat-header-cell *matHeaderCellDef> Marca </th>
+                <td mat-cell *matCellDef="let row"> {{row.marca}} </td>
+              </ng-container>
+            
+              <!-- Número Column -->
+              <ng-container matColumnDef="placa">
+                <th mat-header-cell *matHeaderCellDef> Placa </th>
+                <td mat-cell *matCellDef="let row"> {{row.placa}} </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+      </div>
+      </div>
+  </div>
+  <ng-template #loading>
+    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" >Carregando...</p></ngx-spinner>
+  </ng-template>
+  
